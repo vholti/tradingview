@@ -27,7 +27,7 @@ dashLoc  = input.string('Top Right', 'Location', options = ['Top Right', 'Bottom
 textSize = input.string('Small', 'Size'        , options = ['Tiny', 'Small', 'Normal']                 , group = 'Dashboard')
 
 // Input for session times in New York time zone
-session_time = input.session("0930-1600", "Session Time (New York)")
+session_time = input.session("0930-1600", "Session Time")
 day_offset = input.int(0, "Day offset")
 
 // Extract hours and minutes from the session string
