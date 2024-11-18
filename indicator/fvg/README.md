@@ -6,7 +6,7 @@ Identifying Fair Value Gaps/Imbalances areas as trade entry
 
 # Indicator Code
 
-[tradingview/indicator/fvg.tv at master · vholti/tradingview](https://github.com/vholti/tradingview/blob/master/indicator/fvg.tv)
+https://github.com/vholti/tradingview/blob/db73cc48932bac4348cc16ea2515a7fc6c2adb32/indicator/fvg/fvg.tv
 
 **Notes:**
 
