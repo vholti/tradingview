@@ -37,11 +37,15 @@ Extend the mitigation level of the number of unmitigated FVG’s set by the user
 
 ## Mitigation Levels
 
-Show the mitigation levels of mitigated FVG’s
+Show the mitigation levels of mitigated FVG’s.
+
+![image.png](https://pj-pub.nyc3.digitaloceanspaces.com/img/tradingview/FVG-mitigated-lines.png)
 
 ## Timeframe
 
-Timeframe of the price data used to detect FVG’s
+Timeframe of the price data used to detect FVG’s. You can show FVG from other timeframe. For example in this screenhot there are FVGs from 1 min and 5 min timeframe.
+![image.png](https://pj-pub.nyc3.digitaloceanspaces.com/img/tradingview/FVG-multi-timeframes.png)
+
 
 ## Dashboard
 
