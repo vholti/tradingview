@@ -2,7 +2,7 @@
 
 Identifying Fair Value Gaps/Imbalances areas as trade entry
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1dd90ab0-37c9-44e6-998a-75e1d97974bd/212a561e-37e9-4be0-bfbc-f3a3ac490038/image.png)
+![image.png](https://pj-pub.nyc3.digitaloceanspaces.com/img/tradingview/FVG-01.png)
 
 # Indicator Code
 
@@ -21,7 +21,7 @@ I developed some additional features in this existing indicator, such as:
 
 # Indicator Features
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1dd90ab0-37c9-44e6-998a-75e1d97974bd/18a0f661-c49e-4a15-8e64-fdc7ba0512e9/image.png)
+![image.png](https://pj-pub.nyc3.digitaloceanspaces.com/img/tradingview/FVG-parameters.png)
 
 ## Threshold
 
@@ -45,7 +45,7 @@ Timeframe of the price data used to detect FVG’s
 
 ## Dashboard
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1dd90ab0-37c9-44e6-998a-75e1d97974bd/f4a5f441-8663-40e0-af0e-3ce14b13a951/image.png)
+![image.png](https://pj-pub.nyc3.digitaloceanspaces.com/img/tradingview/FVG-dashboard.png)
 
 The dashboard shows following metrics:
 
@@ -68,19 +68,13 @@ Day offset from today’s date to select specific FVG to show in session metrics
 
 ## List of FVG and Mitigated FVG
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1dd90ab0-37c9-44e6-998a-75e1d97974bd/e7feccd2-c19e-4dbd-84e8-ddf3a298fd88/image.png)
+![image.png](https://pj-pub.nyc3.digitaloceanspaces.com/img/tradingview/FVG-logs.png)
 
 The list of FVG is available in the indicator logs. Here is the intruction how to show the logs:
 
 1. Select `Pine Editor`
 2. Select the three dots beside `Publish indicator`
-    
-    ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1dd90ab0-37c9-44e6-998a-75e1d97974bd/a0378bd9-0dc2-4453-87d6-1505bc829eb9/image.png)
-    
 3. Select `Pine Logs...`
-    
-    ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1dd90ab0-37c9-44e6-998a-75e1d97974bd/1a639f3a-e78b-48c1-84a0-028d18469456/image.png)
-    
 
 ## Alerts
 
