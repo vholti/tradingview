@@ -1,0 +1,63 @@
+//@version=5
+indicator("EMA Monitoring [Poltak]", overlay=false)
+
+// Input for time interval
+timeframe = input.timeframe("1", title="Time Interval")
+
+// Input to show or hide EMA labels
+show_labels = input.bool(true, title="Show EMA Labels")
+
+// Define EMA periods with specified timeframe
+ema50 = request.security(syminfo.tickerid, timeframe, ta.ema(close, 50))
+ema100 = request.security(syminfo.tickerid, timeframe, ta.ema(close, 100))
+ema150 = request.security(syminfo.tickerid, timeframe, ta.ema(close, 150))
+ema200 = request.security(syminfo.tickerid, timeframe, ta.ema(close, 200))
+
+// Store EMA values and names in arrays
+ema_values = array.new_float(4)
+ema_names = array.new_string(4)
+
+array.set(ema_values, 0, ema50)
+array.set(ema_values, 1, ema100)
+array.set(ema_values, 2, ema150)
+array.set(ema_values, 3, ema200)
+
+array.set(ema_names, 0, "EMA 50")
+array.set(ema_names, 1, "EMA 100")
+array.set(ema_names, 2, "EMA 150")
+array.set(ema_names, 3, "EMA 200")
+
+// Define colors based on close price relative to each EMA
+colors = array.new_color(4)
+for i = 0 to array.size(ema_values) - 1
+    is_above = close > array.get(ema_values, i)
+    array.set(colors, i, is_above ? color.blue : color.red)
+
+// Initialize the label arrays to hold squares and EMA names
+var label[] squares = array.new_label(4)
+var label[] ema_labels = array.new_label(4)
+
+// Calculate the position of the first square
+first_square_x = bar_index - 50
+
+// Display the timeframe label beside the first square on the left
+var label timeframe_label = na
+
+if timeframe_label != na
+    label.delete(timeframe_label)
+
+timeframe_label := label.new(x=first_square_x - 30, y=12, text="Timeframe: " + timeframe, style=label.style_label_down, size=size.small, color=color.white, textcolor=color.black)
+
+for i = 0 to array.size(squares) - 1
+    // Remove existing squares and labels if they exist to update color and text
+    if array.get(squares, i) != na
+        label.delete(array.get(squares, i))
+    if array.get(ema_labels, i) != na
+        label.delete(array.get(ema_labels, i))
+    
+    // Create a new label for each EMA square with the updated color
+    array.set(squares, i, label.new(x=bar_index - 60 + i * 15, y=12, text=" ", style=label.style_square, size=size.small, color=array.get(colors, i)))
+    
+    // Create a label for each EMA name above the square if show_labels is true
+    if show_labels
+        array.set(ema_labels, i, label.new(x=bar_index - 60 + i * 15, y=14, text=array.get(ema_names, i), style=label.style_label_up, size=size.small, color=color.white, textcolor=color.black))

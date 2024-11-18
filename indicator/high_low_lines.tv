@@ -1,0 +1,41 @@
+//@version=5
+// The indicator shows today and yesterday's high and low lines.
+indicator("High and Low Lines [Poltak]", overlay=true)
+show_today_lines = input.bool(false, title="Show Today's High and Low")
+show_yesterday_lines = input.bool(true, title="Show Yesterday's High and Low")
+
+
+yesterdays_high = request.security(syminfo.tickerid,"D",high[1])
+yesterdays_low = request.security(syminfo.tickerid,"D",low[1])
+todays_high = request.security(syminfo.tickerid,"D",high[0])
+todays_low = request.security(syminfo.tickerid,"D",low[0])
+
+var line l_yesterdays_high = na
+var line l_yesterdays_low = na
+var label lbl_yesterdays_high = na
+var label lbl_yesterdays_low = na
+
+var line l_todays_high = na
+var line l_todays_low = na
+var label lbl_todays_high = na
+var label lbl_todays_low = na
+
+
+if barstate.islast
+    if show_yesterday_lines
+        l_yesterdays_high := line.new(bar_index-1, yesterdays_high, bar_index, yesterdays_high, extend=extend.both, color=color.blue, width=5, style=line.style_dotted)
+        l_yesterdays_low := line.new(bar_index-1, yesterdays_low, bar_index, yesterdays_low, extend=extend.both, color=color.red, width=5, style=line.style_dotted)
+        lbl_yesterdays_high := label.new(bar_index+10, yesterdays_high, "Yesterday's High", color=color.blue, textcolor=color.white, style=label.style_label_down, size=size.small)
+        lbl_yesterdays_low := label.new(bar_index+10, yesterdays_low, "Yesterday's Low", color=color.red, textcolor=color.white, style=label.style_label_up, size=size.small)
+
+    if show_today_lines
+        l_todays_high := line.new(bar_index-1, todays_high, bar_index, todays_high, extend=extend.both, color=color.white, width=5, style=line.style_dotted)
+        l_todays_low := line.new(bar_index-1, todays_low, bar_index, todays_low, extend=extend.both, color=color.orange, width=5, style=line.style_dotted)
+        lbl_todays_high := label.new(bar_index+10, todays_high, "Today's High", color=color.white, textcolor=color.blue, style=label.style_label_down, size=size.small)
+        lbl_todays_low := label.new(bar_index+10, todays_low, "Today's Low", color=color.maroon, textcolor=color.white, style=label.style_label_up, size=size.small)
+
+line.delete(l_yesterdays_high[1])
+line.delete(l_yesterdays_low[1])
+line.delete(l_todays_high[1])
+label.delete(lbl_yesterdays_high[1])
+label.delete(lbl_yesterdays_low[1])
